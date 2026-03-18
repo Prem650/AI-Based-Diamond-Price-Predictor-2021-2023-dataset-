@@ -1,0 +1,112 @@
+html, body{
+    height: 100%;
+    margin: 0;
+}
+body{
+    background-color: black;
+    font-family: "Royal-Jp0D7";
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+@font-face{
+    font-family: "Royal-Jp0D7";
+    src: url(Royal-Jp0D7.ttf);
+}
+.main{
+    color: white;
+    font-size: 100px;
+    text-align: center ;
+    margin-top: 0px;
+    flex: 1;
+}
+#mainny{
+    margin-bottom: 0px;
+    font-size: 160px;
+    margin-top: 20vh;
+
+}
+#btext{
+    margin-top: 0px;
+
+}
+.photo{
+    size: 2px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    display: inline-flex;
+}
+.small{
+    display: inline-flex;
+}
+#about{
+    color: white;
+    text-align: right;
+    margin-top: 0px;
+    position: absolute;
+    top: 10px;
+    font-size: 20px;
+    right: 10px;
+}
+#home{
+    color: white;
+    text-align: right;
+    margin-right: 60px;
+    position: absolute;
+    top: 10px;
+    font-size: 20px;
+    right: 50px;
+}
+
+#video {
+    position: fixed;
+    right: 10px;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+}
+
+.content {
+    position: relative;
+    max-width: 600px;
+    margin: 60px auto;   /* smaller top margin */
+    padding: 100px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    color: white;
+    text-align: center;
+}
+#button{
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 70px;
+    border-width: 0;
+    display: block;
+    margin: 30px auto;
+    text-align: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-top: 0px;
+    cursor: pointer;
+    font-size: 20px;
+}
+#button:hover{
+    color: white;
+    background-color: black;
+}
+
+.foot{
+    color: white;
+    text-align: center;
+    padding: 5px;
+    background: rgba(0,0,0,0.6);
+    margin-top: auto;
+}
+
+#button{
+    margin-top: 40px;
+}

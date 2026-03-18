@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result - Diamond Price Analyser</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="dia.png">
+</head>
+<body>
+    <video autoplay muted loop id="video">
+        <source src="Comp 1_2.mp4" type="video/mp4">
+    </video>
+    
+    <div class="photo">
+        <img src="dia.png" height="50px">
+    </div>
+    <div class="small">
+        <a id="about" href="about.html"><u>About</u></a>
+    </div>
+    
+    <div class="result-container">
+            <div id="result-content">
+                <p id="result-title">YOUR PREDICTION</p>
+                <div id="result-details"></div>
+                <p id="predicted-price">$<span id="price-value">0</span></p>
+                <button id="new-pred" onclick="window.location.href='enter.html'">New Prediction</button>
+            </div>
+        <script>
+            // Load results from sessionStorage
+            document.addEventListener('DOMContentLoaded', function() {
+                const inputs = JSON.parse(sessionStorage.getItem('diamondInputs') || '{}');
+                const price = sessionStorage.getItem('predictedPrice') || '0';
+                
+                document.getElementById('price-value').textContent = price;
+                
+                const detailsHTML = `
+                    <strong>Carat:</strong> ${inputs.carat || 'N/A'} | 
+                    <strong>Cut:</strong> ${inputs.cut || 'N/A'} | 
+                    <strong>Color:</strong> ${inputs.color || 'N/A'} | 
+                    <strong>Clarity:</strong> ${inputs.clarity || 'N/A'}<br><br>
+                    <strong>Depth:</strong> ${inputs.depth || 'N/A'}% | 
+                    <strong>Table:</strong> ${inputs.table || 'N/A'}% | 
+                    <strong>Dimensions:</strong> ${inputs.x || 'N/A'} × ${inputs.y || 'N/A'} × ${inputs.z || 'N/A'} mm
+                `;
+                document.getElementById('result-details').innerHTML = detailsHTML;
+            });
+
+            function downloadPDF() {
+                const inputs = JSON.parse(sessionStorage.getItem('diamondInputs') || '{}');
+                const price = sessionStorage.getItem('predictedPrice') || '0';
+                
+                fetch('/predict_pdf', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({inputs: inputs, price: price})
+                }).then(response => response.blob())
+                    .then(blob => {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'diamond_report.pdf';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    }).catch(err => alert('PDF generation failed: ' + err));
+            }
+        </script>
+    </div>
+</body>
+</html>

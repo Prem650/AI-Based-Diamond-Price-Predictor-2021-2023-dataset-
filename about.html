@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Diamond Price Analyser</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="dia.png">
+</head>
+<body>
+    <video autoplay muted loop id="video">
+        <source src="Comp 1_2.mp4" type="video/mp4">
+    </video>
+    
+    <div class="photo">
+        <img src="dia.png" height="50px">
+    </div>
+    <div class="small">
+        <a id="home" href="index.html">Home</a>
+    </div>
+    
+    <div class="main">  
+        <p id="mainny">ABOUT</p>
+        <p id="btext">US</p>
+    </div>
+    
+    <div class="content">
+        <div class="form-container" style="max-width: 800px; margin-top: 150px;">
+            <h2 style="font-size: 48px; margin-bottom: 40px; font-family: 'Royal-Jp0D7', sans-serif;">Diamond Price Analyser</h2>
+            <p style="font-size: 24px; line-height: 1.6; margin-bottom: 30px;">
+                
+            </p>
+            <p style="font-size: 24px; line-height: 1.6; margin-bottom: 30px;">
+                Diamond Price Analyser is a machine learning–based web application that predicts the price of diamonds based on key attributes such as Carat, Cut, Color, Clarity, Depth, Table, and Size. The model is trained on a large dataset of real diamond records and uses Random Forest Regression to provide accurate price predictions. This platform helps users quickly estimate diamond values through a simple and interactive web interface.<br><br>
+                We use advanced machine learning to provide accurate diamond pricing predictions based on carat, cut, color, clarity, and physical measurements.
+            </p>
+            <div style="font-size: 22px; line-height: 1.6;">
+                <strong>Our Technology:</strong><br>
+                • Random Forest Regression (R²: 0.976, MAE: $336)<br>
+                • Trained on 10,000+ real diamonds from comprehensive dataset<br>
+                • FastAPI for real-time predictions<br>
+                • Responsive web interface
+            </div>
+            <br><br>
+            <p style="font-size: 24px;">
+                Built for jewelers, buyers, and enthusiasts. Start predicting now!
+            </p>
+            <button id="button" onclick="window.location.href='enter.html'">Get Started</button>
+        </div>
+    </div>
+    
+    <div class="foot">
+        <p>@2026 Diamond Analyser | Precision in Every Carat</p>
+    </div>
+</body>
+</html>
